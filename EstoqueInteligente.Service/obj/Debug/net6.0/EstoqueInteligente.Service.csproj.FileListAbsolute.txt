@@ -1,0 +1,15 @@
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Service.deps.json
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Service.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Service.pdb
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Domain.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Domain.pdb
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.csproj.AssemblyReference.cache
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.AssemblyInfoInputs.cache
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.AssemblyInfo.cs
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.csproj.CoreCompileInputs.cache
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.csproj.CopyComplete
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\refint\EstoqueInteligente.Service.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.pdb
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\ref\EstoqueInteligente.Service.dll
