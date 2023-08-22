@@ -3,11 +3,6 @@ using EstoqueInteligente.Domain.Entities;
 using EstoqueInteligente.Infra.Interfaces.Repository;
 using EstoqueInteligente.Service.DTO;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EstoqueInteligente.Infra.Repositories
 {
@@ -20,7 +15,7 @@ namespace EstoqueInteligente.Infra.Repositories
             _context = context;
         }
 
-        public async Task AlterarNCM(NCM ncm)
+        public async Task AlterarNCM(Nomenclaturas ncm)
         {
 
             var result = await _context.NCM.AsNoTracking<NCM>().FirstOrDefaultAsync(x => x.Codigo.Equals(ncm.Codigo));
@@ -49,7 +44,7 @@ namespace EstoqueInteligente.Infra.Repositories
         {
             await _context.NCMEStatistica.ExecuteDeleteAsync();
 
-          await  _context.NCMEStatistica.AddAsync(new NCMEStatistica
+            await _context.NCMEStatistica.AddAsync(new NCMEStatistica
             {
                 Ato = arquivo.Ato,
                 Data_Ultima_Atualizacao_NCM = arquivo.Data_Ultima_Atualizacao_NCM
@@ -60,7 +55,7 @@ namespace EstoqueInteligente.Infra.Repositories
             foreach (var ncm in arquivo.Nomenclaturas)
             {
 
-                var result = _context.NCM.AsNoTracking<NCM>().FirstOrDefault(x=>x.Codigo.Equals(ncm.Codigo));
+                var result = _context.NCM.AsNoTracking<NCM>().FirstOrDefault(x => x.Codigo.Equals(ncm.Codigo));
                 if (result != null)
                 {
                     _context.NCM.Update(
@@ -77,7 +72,38 @@ namespace EstoqueInteligente.Infra.Repositories
                 }
                 else
                 {
-                  await  _context.NCM.AddAsync(
+                    await _context.NCM.AddAsync(
+                     new NCM
+                     {
+                         Codigo = ncm.Codigo,
+                         Ano_Ato = ncm.Ano_Ato,
+                         Data_Fim = ncm.Data_Fim,
+                         Data_Inicio = ncm.Data_Inicio,
+                         Descricao = ncm.Descricao,
+                         Numero_Ato = ncm.Numero_Ato,
+                         Tipo_Ato = ncm.Tipo_Ato,
+                     });
+                }
+
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeletarNCM(string ncm)
+        {
+            var result = _context.Produto.AsNoTracking<Produto>().FirstOrDefault(x => x.NCM.Codigo.Equals(ncm));
+
+            if (result == null)
+            {
+                _context.NCM.Remove(new NCM { Codigo = ncm });
+            }
+
+            await _context.SaveChangesAsync();
+        }
+        public async Task CadastrarNCM(Nomenclaturas ncm)
+        {
+            await _context.NCM.AddAsync(
                    new NCM
                    {
                        Codigo = ncm.Codigo,
@@ -88,17 +114,7 @@ namespace EstoqueInteligente.Infra.Repositories
                        Numero_Ato = ncm.Numero_Ato,
                        Tipo_Ato = ncm.Tipo_Ato,
                    });
-                }
-
-            }
-
             await _context.SaveChangesAsync();
-
-        }
-
-        public Task DeletarNCM(string ncm)
-        {
-            throw new NotImplementedException();
         }
     }
 }

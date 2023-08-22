@@ -1,5 +1,4 @@
-﻿using EstoqueInteligente.Domain.Entities;
-using EstoqueInteligente.Infra.Interfaces.Repository;
+﻿using EstoqueInteligente.Infra.Interfaces.Repository;
 using EstoqueInteligente.Service.DTO;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +15,6 @@ namespace EstoqueInteligente.Api.Controllers
             _NCMRepository = NCMRepository;
         }
 
-
-
         [HttpPost]
         [Route("/Arquivo")]
         public async Task<ActionResult> PostNCMArquivo(NCMArquivo arquivo)
@@ -28,32 +25,28 @@ namespace EstoqueInteligente.Api.Controllers
         }
       
         [HttpPut]
-        public async Task<IActionResult> PutNCM(NCM ncm)
+        public async Task<IActionResult> PutNCM(Nomenclaturas ncm)
         {
-            try
-            {
+
                 await _NCMRepository.AlterarNCM(ncm);
                 return Ok();
-            }
-            catch (Exception ex)
-            {
-              return BadRequest();
-            }
-         
-
-           
         }
 
         [HttpPost]
-        [Route("/PostNCM")]
-        public async Task<ActionResult> PostNCM(NCM ncm)
+        [Route("")]
+        public async Task<ActionResult> PostNCM(Nomenclaturas ncm)
         {
-           
+          await  _NCMRepository.CadastrarNCM(ncm);
 
             return Ok();
         }
+        [HttpDelete]
+        [Route("")]
+        public async Task<IActionResult> DeleteNCM(string ncm)
+        {
+            await _NCMRepository.DeletarNCM(ncm);
 
-
+            return Ok();
+        }
     }
-
 }

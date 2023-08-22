@@ -15,11 +15,7 @@ namespace EstoqueInteligente.Infra.Mappings
                 .UseIdentityColumn()
                 .ValueGeneratedOnAdd();
             builder.HasMany(s => s.Substancias)
-                .WithMany(f => f.ProdutoFormula);
-
-            
-
-          
+                .WithMany(f => f.ProdutoFormula).UsingEntity(j=>j.ToTable("Produto_Formula_substancia"));
         }
     }
 }

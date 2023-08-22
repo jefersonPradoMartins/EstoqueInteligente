@@ -11,7 +11,8 @@ namespace EstoqueInteligente.Infra.Interfaces.Repository
     public interface INCMRepository
     {
         Task AtualizarNCMArquivo(NCMArquivo arquivo);
-        Task AlterarNCM(NCM ncm);
+        Task CadastrarNCM(Nomenclaturas ncm);
+        Task AlterarNCM(Nomenclaturas ncm);
         Task DeletarNCM(string ncm);
         Task <NCM> BuscarNCMPorCodigo(string ncm);
     }
