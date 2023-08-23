@@ -27,13 +27,13 @@ namespace EstoqueInteligente.Infra.Repositories
             await _context.ProdutoFormula.AddAsync(formula);
             await _context.SaveChangesAsync();
 
-            List<ProdutoFormulaSubstancia> pfs = new List<ProdutoFormulaSubstancia>();
+            List<ProdutoFormulaSubstancia> ProdutoFormulaSubstancias = new List<ProdutoFormulaSubstancia>();
 
             foreach (var codigo in produtoFormulaDto.CodigoSubstancia)
             {
-                pfs.Add(new ProdutoFormulaSubstancia { CodigoSubstancia = codigo, CodigoFormula = formula.CodigoFurmula });
+                ProdutoFormulaSubstancias.Add(new ProdutoFormulaSubstancia { CodigoSubstancia = codigo, CodigoFormula = formula.CodigoFurmula });
             }
-            await _context.ProdutoFormulaSubstancia.AddRangeAsync(pfs);
+            await _context.ProdutoFormulaSubstancia.AddRangeAsync(ProdutoFormulaSubstancias);
 
             await _context.SaveChangesAsync();
         }
@@ -43,8 +43,9 @@ namespace EstoqueInteligente.Infra.Repositories
           var result = _context.Produto.Where(p => p.ProdutoFormula.CodigoFurmula == CodigoFormula);
             if (result.IsNullOrEmpty())
             {
-                _context.ProdutoFormulaSubstancia.Remove(
-                    new ProdutoFormulaSubstancia { CodigoFormula = CodigoFormula});
+                var rest = _context.ProdutoFormulaSubstancia.Where(p=>p.CodigoFormula == CodigoFormula);
+                _context.ProdutoFormulaSubstancia.RemoveRange(rest);
+                _context.SaveChanges();
                 _context.ProdutoFormula.Remove(new ProdutoFormula { CodigoFurmula = CodigoFormula});
 
             }
