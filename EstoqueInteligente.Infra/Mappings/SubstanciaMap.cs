@@ -10,8 +10,7 @@ namespace EstoqueInteligente.Infra.Mappings
         {
             builder.ToTable("Substancia");
             builder.HasKey(s => s.CodigoSubstancia);
-
-
+            builder.HasIndex(s=>s.NomeSubstancia).IsUnique(true);
         }
     }
 }

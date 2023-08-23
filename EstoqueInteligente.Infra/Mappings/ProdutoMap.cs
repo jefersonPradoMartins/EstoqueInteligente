@@ -9,9 +9,8 @@ namespace EstoqueInteligente.Infra.Mappings
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
             builder.ToTable("Produto")
-                .HasMany(g => g.ProdutoGrupo)
-                .WithMany(p => p.Produtos);
-            
+                .HasMany(g => g.Grupo)
+                .WithMany(p => p.Produtos).UsingEntity(p=>p.ToTable("Produto_Grupo"));
 
             builder.HasOne(p => p.NCM)
                 .WithMany(n => n.Produtos);
@@ -22,8 +21,8 @@ namespace EstoqueInteligente.Infra.Mappings
             builder.HasOne(p => p.ProdutoFormula)
                 .WithMany(p => p.Produto);
 
-            builder.HasMany(p => p.ProdutoImagem)
-                .WithMany(p => p.Produto);
+            builder.HasMany(p => p.Imagem)
+                .WithMany(p => p.Produto).UsingEntity(p=>p.ToTable("Produto_Imagem"));
 
             builder.HasKey(p => p.CodigoProduto);
 

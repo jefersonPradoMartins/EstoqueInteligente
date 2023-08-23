@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EstoqueInteligente.Infra.Migrations
 {
-    [DbContext(typeof(Context.Context))]
-    [Migration("20230821075756_v1")]
+    [DbContext(typeof(EstoqueInteligenteContext))]
+    [Migration("20230823051158_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -240,6 +240,34 @@ namespace EstoqueInteligente.Infra.Migrations
                         });
                 });
 
+            modelBuilder.Entity("EstoqueInteligente.Domain.Entities.Grupo", b =>
+                {
+                    b.Property<int>("CodigoGrupo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodigoGrupo"));
+
+                    b.Property<string>("NomeGrupo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Unico")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CodigoGrupo");
+
+                    b.ToTable("Grupo", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CodigoGrupo = 1,
+                            NomeGrupo = "Generico",
+                            Unico = true
+                        });
+                });
+
             modelBuilder.Entity("EstoqueInteligente.Domain.Entities.Identity.Organizacao", b =>
                 {
                     b.Property<int>("CodigoOrganizacao")
@@ -383,6 +411,26 @@ namespace EstoqueInteligente.Infra.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("EstoqueInteligente.Domain.Entities.Imagem", b =>
+                {
+                    b.Property<int>("CodigoImagem")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodigoImagem"));
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("EnderecoImagem")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("CodigoImagem");
+
+                    b.ToTable("Imagem", (string)null);
+                });
+
             modelBuilder.Entity("EstoqueInteligente.Domain.Entities.NCM", b =>
                 {
                     b.Property<string>("Codigo")
@@ -454,7 +502,7 @@ namespace EstoqueInteligente.Infra.Migrations
 
                     b.HasKey("CodigoNCMEstatistica");
 
-                    b.ToTable("NCM_EStatistica", (string)null);
+                    b.ToTable("NCM_Estatistica", (string)null);
 
                     b.HasData(
                         new
@@ -555,7 +603,7 @@ namespace EstoqueInteligente.Infra.Migrations
                             Ativo = true,
                             CPF = "69850578025",
                             CodigoPessoa = 1,
-                            DataCadastro = new DateTime(2023, 8, 21, 4, 57, 56, 441, DateTimeKind.Local).AddTicks(3071),
+                            DataCadastro = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(473),
                             DataNascimento = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Eliminado = false,
                             Nome = "Jeferson",
@@ -617,7 +665,7 @@ namespace EstoqueInteligente.Infra.Migrations
                             CNAE = "7518",
                             CNPJ = "47473617000198",
                             CodigoPessoa = 1,
-                            DataCadastro = new DateTime(2023, 8, 21, 4, 57, 56, 441, DateTimeKind.Local).AddTicks(3233),
+                            DataCadastro = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(646),
                             IE = "683462917135",
                             NomeFantasia = "Nome Fantasia empresa LDTA",
                             RazaoSocial = "Razão Social Empresa LTDA"
@@ -681,7 +729,7 @@ namespace EstoqueInteligente.Infra.Migrations
                         {
                             CodigoProduto = 1,
                             Ativo = true,
-                            DataCadastro = new DateTime(2023, 8, 21, 4, 57, 56, 441, DateTimeKind.Local).AddTicks(3286),
+                            DataCadastro = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(709),
                             DescricaoCompletaProduto = "Descricao completa do produto",
                             DescricaoResumidaProduto = "Descricao Resumida do produto",
                             Eliminado = false,
@@ -819,8 +867,8 @@ namespace EstoqueInteligente.Infra.Migrations
                             CodigoProdutoEstoque = 1,
                             PrecoUltimaCompra = 16.219999999999999,
                             PrecoUltimaVenda = 32.219999999999999,
-                            UltimaCompra = new DateTime(2023, 8, 21, 4, 57, 56, 441, DateTimeKind.Local).AddTicks(3348),
-                            UltimaVenda = new DateTime(2023, 8, 21, 4, 57, 56, 441, DateTimeKind.Local).AddTicks(3349)
+                            UltimaCompra = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(777),
+                            UltimaVenda = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(778)
                         });
                 });
 
@@ -914,7 +962,7 @@ namespace EstoqueInteligente.Infra.Migrations
                             CodigoProdutoEmbalagem = 1,
                             CodigoProdutoEstoque = 1,
                             CurvaABC = "A",
-                            DataCurvaAplicada = new DateTime(2023, 8, 21, 4, 57, 56, 441, DateTimeKind.Local).AddTicks(3360),
+                            DataCurvaAplicada = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(790),
                             EstoqueDemanda = 58,
                             EstoqueDemandaMaxima = 78,
                             EstoqueDemandaMinima = 38,
@@ -1018,52 +1066,19 @@ namespace EstoqueInteligente.Infra.Migrations
                     b.ToTable("Produto_Formula", (string)null);
                 });
 
-            modelBuilder.Entity("EstoqueInteligente.Domain.Entities.ProdutoGrupo", b =>
+            modelBuilder.Entity("EstoqueInteligente.Domain.Entities.ProdutoFormulaSubstancia", b =>
                 {
-                    b.Property<int>("CodigoGrupo")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("CodigoFormula")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodigoGrupo"));
-
-                    b.Property<string>("NomeGrupo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Unico")
-                        .HasColumnType("bit");
-
-                    b.HasKey("CodigoGrupo");
-
-                    b.ToTable("Produto_Grupo", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            CodigoGrupo = 1,
-                            NomeGrupo = "Generico",
-                            Unico = true
-                        });
-                });
-
-            modelBuilder.Entity("EstoqueInteligente.Domain.Entities.ProdutoImagem", b =>
-                {
-                    b.Property<int>("CodigoImagem")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("CodigoSubstancia")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodigoImagem"));
+                    b.HasKey("CodigoFormula", "CodigoSubstancia");
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
+                    b.HasIndex("CodigoSubstancia");
 
-                    b.Property<byte[]>("Imagem")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.HasKey("CodigoImagem");
-
-                    b.ToTable("ProdutoImagem", (string)null);
+                    b.ToTable("Produto_Formula_substancia", (string)null);
                 });
 
             modelBuilder.Entity("EstoqueInteligente.Domain.Entities.Substancia", b =>
@@ -1076,11 +1091,71 @@ namespace EstoqueInteligente.Infra.Migrations
 
                     b.Property<string>("NomeSubstancia")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CodigoSubstancia");
 
+                    b.HasIndex("NomeSubstancia")
+                        .IsUnique();
+
                     b.ToTable("Substancia", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CodigoSubstancia = 1,
+                            NomeSubstancia = "Dipirona Sodica"
+                        },
+                        new
+                        {
+                            CodigoSubstancia = 2,
+                            NomeSubstancia = "Lozartana"
+                        },
+                        new
+                        {
+                            CodigoSubstancia = 3,
+                            NomeSubstancia = "Lizina"
+                        },
+                        new
+                        {
+                            CodigoSubstancia = 4,
+                            NomeSubstancia = "Midazolam"
+                        },
+                        new
+                        {
+                            CodigoSubstancia = 5,
+                            NomeSubstancia = "Morfina"
+                        });
+                });
+
+            modelBuilder.Entity("GrupoProduto", b =>
+                {
+                    b.Property<int>("GrupoCodigoGrupo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProdutosCodigoProduto")
+                        .HasColumnType("int");
+
+                    b.HasKey("GrupoCodigoGrupo", "ProdutosCodigoProduto");
+
+                    b.HasIndex("ProdutosCodigoProduto");
+
+                    b.ToTable("Produto_Grupo", (string)null);
+                });
+
+            modelBuilder.Entity("ImagemProduto", b =>
+                {
+                    b.Property<int>("ImagemCodigoImagem")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProdutoCodigoProduto")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImagemCodigoImagem", "ProdutoCodigoProduto");
+
+                    b.HasIndex("ProdutoCodigoProduto");
+
+                    b.ToTable("Produto_Imagem", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -1169,51 +1244,6 @@ namespace EstoqueInteligente.Infra.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("ProdutoFormulaSubstancia", b =>
-                {
-                    b.Property<int>("ProdutoFormulaCodigoFurmula")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubstanciasCodigoSubstancia")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProdutoFormulaCodigoFurmula", "SubstanciasCodigoSubstancia");
-
-                    b.HasIndex("SubstanciasCodigoSubstancia");
-
-                    b.ToTable("ProdutoFormulaSubstancia");
-                });
-
-            modelBuilder.Entity("ProdutoProdutoGrupo", b =>
-                {
-                    b.Property<int>("ProdutoGrupoCodigoGrupo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProdutosCodigoProduto")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProdutoGrupoCodigoGrupo", "ProdutosCodigoProduto");
-
-                    b.HasIndex("ProdutosCodigoProduto");
-
-                    b.ToTable("ProdutoProdutoGrupo");
-                });
-
-            modelBuilder.Entity("ProdutoProdutoImagem", b =>
-                {
-                    b.Property<int>("ProdutoCodigoProduto")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProdutoImagemCodigoImagem")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProdutoCodigoProduto", "ProdutoImagemCodigoImagem");
-
-                    b.HasIndex("ProdutoImagemCodigoImagem");
-
-                    b.ToTable("ProdutoProdutoImagem");
                 });
 
             modelBuilder.Entity("EstoqueInteligente.Domain.Entities.ConfiguracaoEmpresa", b =>
@@ -1424,6 +1454,51 @@ namespace EstoqueInteligente.Infra.Migrations
                     b.Navigation("ProdutoEstoque");
                 });
 
+            modelBuilder.Entity("EstoqueInteligente.Domain.Entities.ProdutoFormulaSubstancia", b =>
+                {
+                    b.HasOne("EstoqueInteligente.Domain.Entities.ProdutoFormula", null)
+                        .WithMany()
+                        .HasForeignKey("CodigoFormula")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EstoqueInteligente.Domain.Entities.Substancia", null)
+                        .WithMany()
+                        .HasForeignKey("CodigoSubstancia")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GrupoProduto", b =>
+                {
+                    b.HasOne("EstoqueInteligente.Domain.Entities.Grupo", null)
+                        .WithMany()
+                        .HasForeignKey("GrupoCodigoGrupo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EstoqueInteligente.Domain.Entities.Produto", null)
+                        .WithMany()
+                        .HasForeignKey("ProdutosCodigoProduto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ImagemProduto", b =>
+                {
+                    b.HasOne("EstoqueInteligente.Domain.Entities.Imagem", null)
+                        .WithMany()
+                        .HasForeignKey("ImagemCodigoImagem")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EstoqueInteligente.Domain.Entities.Produto", null)
+                        .WithMany()
+                        .HasForeignKey("ProdutoCodigoProduto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("EstoqueInteligente.Domain.Entities.Identity.Role", null)
@@ -1456,51 +1531,6 @@ namespace EstoqueInteligente.Infra.Migrations
                     b.HasOne("EstoqueInteligente.Domain.Entities.Identity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProdutoFormulaSubstancia", b =>
-                {
-                    b.HasOne("EstoqueInteligente.Domain.Entities.ProdutoFormula", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutoFormulaCodigoFurmula")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EstoqueInteligente.Domain.Entities.Substancia", null)
-                        .WithMany()
-                        .HasForeignKey("SubstanciasCodigoSubstancia")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProdutoProdutoGrupo", b =>
-                {
-                    b.HasOne("EstoqueInteligente.Domain.Entities.ProdutoGrupo", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutoGrupoCodigoGrupo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EstoqueInteligente.Domain.Entities.Produto", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutosCodigoProduto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProdutoProdutoImagem", b =>
-                {
-                    b.HasOne("EstoqueInteligente.Domain.Entities.Produto", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutoCodigoProduto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EstoqueInteligente.Domain.Entities.ProdutoImagem", null)
-                        .WithMany()
-                        .HasForeignKey("ProdutoImagemCodigoImagem")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

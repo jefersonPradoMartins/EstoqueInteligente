@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace EstoqueInteligente.Infra.Mappings
 {
-    internal class ProdutoGrupoMap : IEntityTypeConfiguration<ProdutoGrupo>
+    internal class GrupoMap : IEntityTypeConfiguration<Grupo>
     {
-        public void Configure(EntityTypeBuilder<ProdutoGrupo> builder)
+        public void Configure(EntityTypeBuilder<Grupo> builder)
         {
-            builder.ToTable("Produto_Grupo");
+            builder.ToTable("Grupo");
             builder.HasKey(g=>g.CodigoGrupo);
 
         }

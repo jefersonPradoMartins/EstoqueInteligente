@@ -4,20 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using EstoqueInteligente.Domain.Entities.Identity;
 using EstoqueInteligente.Infra.Mappings;
 using EstoqueInteligente.Domain.Entities;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using Azure;
 
 namespace EstoqueInteligente.Infra.Context
 {
-    public class Context : IdentityDbContext<User, Role, int
+    public class EstoqueInteligenteContext : IdentityDbContext<User, Role, int
          , IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>
         , IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
-        public Context() { }
+        public EstoqueInteligenteContext() { }
 
-        public Context(DbContextOptions<Context> options) : base(options)
+        public EstoqueInteligenteContext(DbContextOptions<EstoqueInteligenteContext> options) : base(options)
         {
-            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,8 +40,9 @@ namespace EstoqueInteligente.Infra.Context
             modelBuilder.ApplyConfiguration(new ProdutoEstoqueMap());
             modelBuilder.ApplyConfiguration(new ProdutoEstoquePrecificacaoMap());
             modelBuilder.ApplyConfiguration(new ProdutoFormulaMap());
-            modelBuilder.ApplyConfiguration(new ProdutoGrupoMap());
-            modelBuilder.ApplyConfiguration(new ProdutoImagemMap());
+            modelBuilder.ApplyConfiguration(new ProdutoFormulaSubstanciaMap());
+            modelBuilder.ApplyConfiguration(new GrupoMap());
+            modelBuilder.ApplyConfiguration(new ImagemMap());
             modelBuilder.ApplyConfiguration(new ProdutoMap());
             modelBuilder.ApplyConfiguration(new SubstanciaMap());
             #endregion
@@ -155,8 +153,8 @@ namespace EstoqueInteligente.Infra.Context
                 
                 }
                 }) ;
-            modelBuilder.Entity<ProdutoGrupo>().HasData(
-                new ProdutoGrupo
+            modelBuilder.Entity<Grupo>().HasData(
+                new Grupo
                 {
                     CodigoGrupo = 1,
                     NomeGrupo = "Generico",
@@ -251,6 +249,13 @@ namespace EstoqueInteligente.Infra.Context
                     Ato = "Resolução Camex nº 440/2022",
                     Data_Ultima_Atualizacao_NCM = "01/04/2023"
                 });
+            modelBuilder.Entity<Substancia>().HasData(
+                new Substancia { CodigoSubstancia = 1, NomeSubstancia = "Dipirona Sodica"},
+                new Substancia { CodigoSubstancia = 2, NomeSubstancia = "Lozartana"},
+                new Substancia { CodigoSubstancia = 3, NomeSubstancia = "Lizina"},
+                new Substancia { CodigoSubstancia = 4, NomeSubstancia = "Midazolam" },
+                new Substancia { CodigoSubstancia = 5, NomeSubstancia = "Morfina"}
+                );
             #endregion
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -279,10 +284,12 @@ namespace EstoqueInteligente.Infra.Context
         public DbSet<ProdutoEstoque> ProdutoEstoque { get; set; }
         public DbSet<ProdutoEstoquePrecificacao> ProdutoEstoquePrecificacao { get; set; }
         public DbSet<ProdutoFormula> ProdutoFormula { get; set; }
-        public DbSet<ProdutoGrupo> ProdutoGrupo { get; set; }
-        public DbSet<ProdutoImagem> ProdutoImagem { get; set; }
-        public DbSet<Produto> Produto { get; set; }
         public DbSet<Substancia> Substancia { get; set; }
+        public DbSet<ProdutoFormulaSubstancia> ProdutoFormulaSubstancia { get; set; }
+        public DbSet<Grupo> Grupo { get; set; }
+        public DbSet<Imagem> Imagem { get; set; }
+        public DbSet<Produto> Produto { get; set; }
+      
         #endregion
     }
 }

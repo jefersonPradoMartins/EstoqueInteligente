@@ -8,9 +8,9 @@ namespace EstoqueInteligente.Infra.Repositories
 {
     public class NCMRepository : INCMRepository
     {
-        private readonly Context.Context _context;
+        private readonly Context.EstoqueInteligenteContext _context;
 
-        public NCMRepository(Context.Context context)
+        public NCMRepository(Context.EstoqueInteligenteContext context)
         {
             _context = context;
         }

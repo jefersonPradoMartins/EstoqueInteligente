@@ -47,7 +47,6 @@ namespace EstoqueInteligente.Service.DTO
         #endregion
         
     }
-    public record ProdutoFormulaDto(string NomeFormula);
   
     public record ProdutoImagemDto
     {

@@ -10,12 +10,13 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 #region Context
-builder.Services.AddDbContext<Context>();
+builder.Services.AddDbContext<EstoqueInteligenteContext>();
 #endregion
 
-builder.Services.AddTransient<IEnderecoRepository, EnderecoRepository>();
-builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
-builder.Services.AddTransient<INCMRepository, NCMRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<INCMRepository, NCMRepository>();
+builder.Services.AddScoped<IProdutoFormulaRepository, ProdutoFormulaRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

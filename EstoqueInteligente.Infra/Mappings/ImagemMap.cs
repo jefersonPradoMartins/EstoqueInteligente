@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace EstoqueInteligente.Infra.Mappings
 {
-    internal class ProdutoImagemMap : IEntityTypeConfiguration<ProdutoImagem>
+    internal class ImagemMap : IEntityTypeConfiguration<Imagem>
     {
-        public void Configure(EntityTypeBuilder<ProdutoImagem> builder)
+        public void Configure(EntityTypeBuilder<Imagem> builder)
         {
-            builder.ToTable("ProdutoImagem");
+            builder.ToTable("Imagem");
             builder.HasKey(i => i.CodigoImagem);
 
            

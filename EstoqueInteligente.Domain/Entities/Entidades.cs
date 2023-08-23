@@ -15,11 +15,11 @@ namespace EstoqueInteligente.Domain.Entities
         public bool Ativo { get; set; }
         public bool Eliminado { get; set; }
         public NCM? NCM { get; set; }
-        public ICollection<ProdutoGrupo>? ProdutoGrupo { get; set; }
+        public ICollection<Grupo>? Grupo { get; set; }
         public ProdutoClasseTerapeutica? ProdutoClasseTerapeutica { get; set; }
         public virtual ProdutoCodigoBarra? ProdutoCodigoBarra { get; set; }
         public ProdutoFormula? ProdutoFormula { get; set; }
-        public ICollection<ProdutoImagem> ProdutoImagem { get; set; } = new List<ProdutoImagem>();
+        public ICollection<Imagem> Imagem { get; set; } = new List<Imagem>();
         public ProdutoEstoque ProdutoEstoque { get; set; }
 
 
@@ -31,11 +31,11 @@ namespace EstoqueInteligente.Domain.Entities
             DateTime DataCadastro,
             string RegistroMS,
             NCM NCM,
-            ICollection<ProdutoGrupo> ProdutoGrupo,
+            ICollection<Grupo> ProdutoGrupo,
             ProdutoClasseTerapeutica ProdutoClasseTerapeutica,
             ICollection<ProdutoCodigoBarra> ProdutoCodigoBarra,
             ProdutoFormula ProdutoFormula,
-            ICollection<ProdutoImagem> ProdutoImagem,
+            ICollection<Imagem> ProdutoImagem,
             ProdutoEstoque ProdutoEstoque,
             bool Ativo
             )
@@ -122,7 +122,7 @@ namespace EstoqueInteligente.Domain.Entities
     }
     public class ProdutoFormula
     {
-        public int? CodigoFurmula { get; set; }
+        public int CodigoFurmula { get; set; }
         public string NomeFormula { get; set; }
         public ICollection<Produto> Produto { get; set; }
         public ICollection<Substancia> Substancias { get; set; }
@@ -132,7 +132,11 @@ namespace EstoqueInteligente.Domain.Entities
         public int CodigoSubstancia { get; set; }
         public string NomeSubstancia { get; set; }
         public ICollection<ProdutoFormula> ProdutoFormula { get; set; }
-
+    }
+    public class ProdutoFormulaSubstancia
+    {
+      public int CodigoSubstancia { get;set; }
+      public int CodigoFormula { get;set; }
     }
     public class ProdutoCodigoBarra
     {
@@ -141,22 +145,22 @@ namespace EstoqueInteligente.Domain.Entities
         public int CodigoProduto { get; set; }
         public virtual Produto Produto { get; set; }
     }
-    public class ProdutoImagem
+    public class Imagem
     {
         public int CodigoImagem { get; set; }
-        public byte[] Imagem { get; set; }
+        public byte[] EnderecoImagem { get; set; }
         public bool Ativo { get; set; }
         public virtual ICollection<Produto> Produto { get; set; }
     }
-    public class ProdutoGrupo
+    public class Grupo
     {
         public int CodigoGrupo { get; set; }
         public string NomeGrupo { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; } = new List<Produto>();
         public bool Unico { get; set; }
 
-        public ProdutoGrupo() { }
-        public ProdutoGrupo(
+        public Grupo() { }
+        public Grupo(
             int CodigoGrupo,
             string NomeGrupo,
             bool Unico) 
@@ -175,7 +179,6 @@ namespace EstoqueInteligente.Domain.Entities
         public int QuantidadePorEmbalagem { get; set; }
         public ProdutoEstoqueControle ProdutoEstoqueControle { get; set; }
     }
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse)
     public class NCM
     {
         public string Codigo { get; set; }
@@ -286,7 +289,7 @@ namespace EstoqueInteligente.Domain.Entities
         public string NomeBairro { get; set; }
         public Endereco Endereco { get; set; }
     }
-    public enum Sexo
+    public enum  Sexo
     {
         Masculino, Feminino, Outro
     }

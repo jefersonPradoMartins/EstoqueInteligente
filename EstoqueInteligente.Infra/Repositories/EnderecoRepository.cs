@@ -5,9 +5,9 @@ namespace EstoqueInteligente.Infra.Repositories
 {
     public class EnderecoRepository : IEnderecoRepository
     {
-        private readonly Context.Context _context;
+        private readonly Context.EstoqueInteligenteContext _context;
 
-        public EnderecoRepository(Context.Context context)
+        public EnderecoRepository(Context.EstoqueInteligenteContext context)
         {
             _context = context;
         }

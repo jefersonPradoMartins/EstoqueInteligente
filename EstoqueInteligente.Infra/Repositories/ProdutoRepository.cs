@@ -7,9 +7,9 @@ namespace EstoqueInteligente.Infra.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        private Context.Context _context;
+        private Context.EstoqueInteligenteContext _context;
 
-        public ProdutoRepository(Context.Context context)
+        public ProdutoRepository(Context.EstoqueInteligenteContext context)
         {
             _context = context;
         }
@@ -45,27 +45,27 @@ namespace EstoqueInteligente.Infra.Repositories
             Console.WriteLine(produto.CodigoProduto.ToString());
             #endregion
             #region Produto_Grupo
-            List<ProdutoGrupo> produtoGrupos = new List<ProdutoGrupo>();
+            List<Grupo> produtoGrupos = new List<Grupo>();
             foreach (var grupo in produtoDto.ProdutoGrupoDto)
             {
                 if(grupo.CodigoGrupo == 0)
                 {
-                    var result = await _context.ProdutoGrupo.SingleOrDefaultAsync(x => x.NomeGrupo.Equals(grupo.NomeGrupo));
+                    var result = await _context.Grupo.SingleOrDefaultAsync(x => x.NomeGrupo.Equals(grupo.NomeGrupo));
                     if(result != null)
                     {
                         produtoGrupos.Add(result);
                     }
                     else
                     {
-                        ProdutoGrupo produtoGrupo = new ProdutoGrupo { NomeGrupo = grupo.NomeGrupo };
-                                         await _context.ProdutoGrupo.AddAsync(produtoGrupo);
-                        var resultGrupo = await _context.ProdutoGrupo.SingleOrDefaultAsync(x => x.NomeGrupo.Equals(grupo.NomeGrupo));
+                        Grupo produtoGrupo = new Grupo { NomeGrupo = grupo.NomeGrupo };
+                                         await _context.Grupo.AddAsync(produtoGrupo);
+                        var resultGrupo = await _context.Grupo.SingleOrDefaultAsync(x => x.NomeGrupo.Equals(grupo.NomeGrupo));
 
                         produtoGrupos.Add(resultGrupo);
                     }
                 }
             }
-            produto.ProdutoGrupo = produtoGrupos;
+            produto.Grupo = produtoGrupos;
             #endregion
             #region Produto_Estoque
 
