@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EstoqueInteligente.Domain\EstoqueInteligente.Domain.csproj" />
-    <ProjectReference Include="..\EstoqueInteligente.Service\EstoqueInteligente.Service.csproj" />
   </ItemGroup>
 
 </Project>

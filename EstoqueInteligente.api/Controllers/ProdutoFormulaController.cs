@@ -22,18 +22,18 @@ namespace EstoqueInteligente.Api.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostProdutoFormula(ProdutoFormulaDto produtoFormulaDto)
-        {
-          await  _produtoFormulaRepository.CadastrarFormula(produtoFormulaDto);
+        //[HttpPost]
+        //public async Task<IActionResult> PostProdutoFormula(ProdutoFormulaDto produtoFormulaDto)
+        //{
+        //  await  _produtoFormulaRepository.CadastrarFormula(produtoFormulaDto);
 
-            return Ok();
-        }
-        [HttpDelete]
-        public async Task<IActionResult> DeleteProdutoFormula(int CodigoFormula)
-        {
-            await _produtoFormulaRepository.DeletarFormula(CodigoFormula);
-            return Ok();
-        }
+        //    return Ok();
+        //}
+        //[HttpDelete]
+        //public async Task<IActionResult> DeleteProdutoFormula(int CodigoFormula)
+        //{
+        //    await _produtoFormulaRepository.DeletarFormula(CodigoFormula);
+        //    return Ok();
+        //}
     }
 }

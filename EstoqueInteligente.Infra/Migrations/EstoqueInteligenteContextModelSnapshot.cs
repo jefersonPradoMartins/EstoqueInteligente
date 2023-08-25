@@ -600,7 +600,7 @@ namespace EstoqueInteligente.Infra.Migrations
                             Ativo = true,
                             CPF = "69850578025",
                             CodigoPessoa = 1,
-                            DataCadastro = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(473),
+                            DataCadastro = new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(315),
                             DataNascimento = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Eliminado = false,
                             Nome = "Jeferson",
@@ -662,7 +662,7 @@ namespace EstoqueInteligente.Infra.Migrations
                             CNAE = "7518",
                             CNPJ = "47473617000198",
                             CodigoPessoa = 1,
-                            DataCadastro = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(646),
+                            DataCadastro = new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(515),
                             IE = "683462917135",
                             NomeFantasia = "Nome Fantasia empresa LDTA",
                             RazaoSocial = "Razão Social Empresa LTDA"
@@ -704,7 +704,7 @@ namespace EstoqueInteligente.Infra.Migrations
                     b.Property<int?>("ProdutoClasseTerapeuticaCodigoClasseTerapeutica")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProdutoFormulaCodigoFurmula")
+                    b.Property<int?>("ProdutoFormulaCodigoFormula")
                         .HasColumnType("int");
 
                     b.Property<string>("RegistroMS")
@@ -717,7 +717,7 @@ namespace EstoqueInteligente.Infra.Migrations
 
                     b.HasIndex("ProdutoClasseTerapeuticaCodigoClasseTerapeutica");
 
-                    b.HasIndex("ProdutoFormulaCodigoFurmula");
+                    b.HasIndex("ProdutoFormulaCodigoFormula");
 
                     b.ToTable("Produto", (string)null);
 
@@ -726,7 +726,7 @@ namespace EstoqueInteligente.Infra.Migrations
                         {
                             CodigoProduto = 1,
                             Ativo = true,
-                            DataCadastro = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(709),
+                            DataCadastro = new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(581),
                             DescricaoCompletaProduto = "Descricao completa do produto",
                             DescricaoResumidaProduto = "Descricao Resumida do produto",
                             Eliminado = false,
@@ -864,8 +864,8 @@ namespace EstoqueInteligente.Infra.Migrations
                             CodigoProdutoEstoque = 1,
                             PrecoUltimaCompra = 16.219999999999999,
                             PrecoUltimaVenda = 32.219999999999999,
-                            UltimaCompra = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(777),
-                            UltimaVenda = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(778)
+                            UltimaCompra = new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(654),
+                            UltimaVenda = new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(654)
                         });
                 });
 
@@ -959,7 +959,7 @@ namespace EstoqueInteligente.Infra.Migrations
                             CodigoProdutoEmbalagem = 1,
                             CodigoProdutoEstoque = 1,
                             CurvaABC = "A",
-                            DataCurvaAplicada = new DateTime(2023, 8, 23, 2, 11, 58, 196, DateTimeKind.Local).AddTicks(790),
+                            DataCurvaAplicada = new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(666),
                             EstoqueDemanda = 58,
                             EstoqueDemandaMaxima = 78,
                             EstoqueDemandaMinima = 38,
@@ -1048,17 +1048,17 @@ namespace EstoqueInteligente.Infra.Migrations
 
             modelBuilder.Entity("EstoqueInteligente.Domain.Entities.ProdutoFormula", b =>
                 {
-                    b.Property<int?>("CodigoFurmula")
+                    b.Property<int>("CodigoFormula")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CodigoFurmula"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodigoFormula"));
 
                     b.Property<string>("NomeFormula")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CodigoFurmula");
+                    b.HasKey("CodigoFormula");
 
                     b.ToTable("Produto_Formula", (string)null);
                 });
@@ -1360,7 +1360,7 @@ namespace EstoqueInteligente.Infra.Migrations
 
                     b.HasOne("EstoqueInteligente.Domain.Entities.ProdutoFormula", "ProdutoFormula")
                         .WithMany("Produto")
-                        .HasForeignKey("ProdutoFormulaCodigoFurmula");
+                        .HasForeignKey("ProdutoFormulaCodigoFormula");
 
                     b.Navigation("NCM");
 

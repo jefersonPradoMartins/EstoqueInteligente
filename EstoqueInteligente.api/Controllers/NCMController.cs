@@ -1,5 +1,6 @@
 ﻿using EstoqueInteligente.Infra.Interfaces.Repository;
 using EstoqueInteligente.Service.DTO;
+using EstoqueInteligente.Service.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstoqueInteligente.Api.Controllers
@@ -8,35 +9,34 @@ namespace EstoqueInteligente.Api.Controllers
     [ApiController]
     public class NCMController : Controller
     {
-        private readonly INCMRepository _NCMRepository;
+        private readonly INCMService _ncmService;
 
-        public NCMController(INCMRepository NCMRepository)
+        public NCMController(INCMService ncmService)
         {
-            _NCMRepository = NCMRepository;
+            _ncmService = ncmService;
         }
 
         [HttpPost]
         [Route("/Arquivo")]
         public async Task<ActionResult> PostNCMArquivo(NCMArquivo arquivo)
         {
-            await _NCMRepository.AtualizarNCMArquivo(arquivo);
+            await _ncmService.UpdateAsync(arquivo);
 
             return Ok();
         }
-      
+
         [HttpPut]
         public async Task<IActionResult> PutNCM(Nomenclaturas ncm)
         {
-
-                await _NCMRepository.AlterarNCM(ncm);
-                return Ok();
+            await _ncmService.UpdateAsync(ncm);
+            return Ok();
         }
 
         [HttpPost]
         [Route("")]
         public async Task<ActionResult> PostNCM(Nomenclaturas ncm)
         {
-          await  _NCMRepository.CadastrarNCM(ncm);
+            await _ncmService.CreateAsync(ncm);
 
             return Ok();
         }
@@ -44,7 +44,7 @@ namespace EstoqueInteligente.Api.Controllers
         [Route("")]
         public async Task<IActionResult> DeleteNCM(string ncm)
         {
-            await _NCMRepository.DeletarNCM(ncm);
+            await _ncmService.RemoveAsync(ncm);
 
             return Ok();
         }

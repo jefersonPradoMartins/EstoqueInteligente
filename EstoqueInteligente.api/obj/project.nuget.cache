@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "BHJL7lJj9AVs3gV7npBnh7jMid5/6rnwWlpDgyKRCBfkfxxIYHibIEsq0IIdzS+dxozj/dlmxJffm6YQCdYC+Q==",
+  "dgSpecHash": "YOKtPmdH7f0zVEP9T5RkXrDdLPZi+LAcXyRFgYn1e/YeWQmVlOJ65pWq0aDhSEbKDWuWk2yTT9HT5HGA5adsJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jerso peida dinterin\\source\\repos\\EstoqueInteligente\\EstoqueInteligente.api\\EstoqueInteligente.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\entityframework\\6.1.0\\entityframework.6.1.0.nupkg.sha512",
+    "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.4\\microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
     "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\microsoft.aspnet.identity.entityframework\\2.2.4\\microsoft.aspnet.identity.entityframework.2.2.4.nupkg.sha512",
     "C:\\Users\\Jerso peida dinterin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.9\\microsoft.aspnetcore.cryptography.internal.7.0.9.nupkg.sha512",

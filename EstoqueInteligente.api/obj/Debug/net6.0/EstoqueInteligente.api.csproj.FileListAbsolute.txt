@@ -91,3 +91,7 @@ C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\obj\Debug\net6.0\EstoqueInteligente.Api.pdb
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\obj\Debug\net6.0\EstoqueInteligente.Api.genruntimeconfig.cache
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\obj\Debug\net6.0\ref\EstoqueInteligente.Api.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\obj\Debug\net6.0\EstoqueInteligente.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\bin\Debug\net6.0\EstoqueInteligente.Core.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.api\bin\Debug\net6.0\EstoqueInteligente.Core.pdb

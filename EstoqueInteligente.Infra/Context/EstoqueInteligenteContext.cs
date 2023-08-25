@@ -249,13 +249,14 @@ namespace EstoqueInteligente.Infra.Context
                     Ato = "Resolução Camex nº 440/2022",
                     Data_Ultima_Atualizacao_NCM = "01/04/2023"
                 });
+
             modelBuilder.Entity<Substancia>().HasData(
-                new Substancia { CodigoSubstancia = 1, NomeSubstancia = "Dipirona Sodica"},
-                new Substancia { CodigoSubstancia = 2, NomeSubstancia = "Lozartana"},
-                new Substancia { CodigoSubstancia = 3, NomeSubstancia = "Lizina"},
-                new Substancia { CodigoSubstancia = 4, NomeSubstancia = "Midazolam" },
-                new Substancia { CodigoSubstancia = 5, NomeSubstancia = "Morfina"}
-                );
+            new Substancia { CodigoSubstancia = 1, NomeSubstancia = "Dipirona Sodica" },
+            new Substancia { CodigoSubstancia = 2, NomeSubstancia = "Lozartana" },
+            new Substancia { CodigoSubstancia = 3, NomeSubstancia = "Lizina" },
+            new Substancia { CodigoSubstancia = 4, NomeSubstancia = "Midazolam" },
+            new Substancia { CodigoSubstancia = 5, NomeSubstancia = "Morfina" }
+            );
             #endregion
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

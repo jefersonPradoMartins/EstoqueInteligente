@@ -13,3 +13,7 @@ C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\refint\EstoqueInteligente.Service.dll
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\EstoqueInteligente.Service.pdb
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\obj\Debug\net6.0\ref\EstoqueInteligente.Service.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Core.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Infra.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Core.pdb
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Service\bin\Debug\net6.0\EstoqueInteligente.Infra.pdb

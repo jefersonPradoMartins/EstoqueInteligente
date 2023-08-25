@@ -3,9 +3,7 @@ C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\bin\Debug\net6.0\EstoqueInteligente.Infra.dll
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\bin\Debug\net6.0\EstoqueInteligente.Infra.pdb
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\bin\Debug\net6.0\EstoqueInteligente.Domain.dll
-C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\bin\Debug\net6.0\EstoqueInteligente.Service.dll
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\bin\Debug\net6.0\EstoqueInteligente.Domain.pdb
-C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\bin\Debug\net6.0\EstoqueInteligente.Service.pdb
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\obj\Debug\net6.0\EstoqueInteligente.Infra.csproj.AssemblyReference.cache
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\obj\Debug\net6.0\EstoqueInteligente.Infra.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Infra\obj\Debug\net6.0\EstoqueInteligente.Infra.AssemblyInfoInputs.cache

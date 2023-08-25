@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EstoqueInteligente.Infra", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EstoqueInteligente.Domain", "EstoqueInteligente.Domain\EstoqueInteligente.Domain.csproj", "{3D99EB42-1D1D-4D3C-AE9C-0491045959B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueInteligente.Api", "EstoqueInteligente.api\EstoqueInteligente.Api.csproj", "{2A66E8E0-C7B2-49CC-879C-D0746747F8A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EstoqueInteligente.Api", "EstoqueInteligente.api\EstoqueInteligente.Api.csproj", "{2A66E8E0-C7B2-49CC-879C-D0746747F8A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueInteligente.Service", "EstoqueInteligente.Service\EstoqueInteligente.Service.csproj", "{2587115E-49B6-46A6-8372-ADB1222B5991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EstoqueInteligente.Service", "EstoqueInteligente.Service\EstoqueInteligente.Service.csproj", "{2587115E-49B6-46A6-8372-ADB1222B5991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueInteligente.Core", "EstoqueInteligente.Core\EstoqueInteligente.Core.csproj", "{75251FE2-99B8-4AFA-B6F3-0336E744DEB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2587115E-49B6-46A6-8372-ADB1222B5991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2587115E-49B6-46A6-8372-ADB1222B5991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2587115E-49B6-46A6-8372-ADB1222B5991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75251FE2-99B8-4AFA-B6F3-0336E744DEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75251FE2-99B8-4AFA-B6F3-0336E744DEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75251FE2-99B8-4AFA-B6F3-0336E744DEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75251FE2-99B8-4AFA-B6F3-0336E744DEB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

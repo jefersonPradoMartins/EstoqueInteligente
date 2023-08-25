@@ -1,0 +1,11 @@
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\bin\Debug\net6.0\EstoqueInteligente.Core.deps.json
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\bin\Debug\net6.0\EstoqueInteligente.Core.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\bin\Debug\net6.0\EstoqueInteligente.Core.pdb
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\EstoqueInteligente.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\EstoqueInteligente.Core.AssemblyInfoInputs.cache
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\EstoqueInteligente.Core.AssemblyInfo.cs
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\EstoqueInteligente.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\EstoqueInteligente.Core.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\refint\EstoqueInteligente.Core.dll
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\EstoqueInteligente.Core.pdb
+C:\Users\Jerso peida dinterin\source\repos\EstoqueInteligente\EstoqueInteligente.Core\obj\Debug\net6.0\ref\EstoqueInteligente.Core.dll

@@ -1,6 +1,8 @@
 ﻿
 
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.SymbolStore;
+using static EstoqueInteligente.Domain.Validators.AllValidations;
 
 namespace EstoqueInteligente.Domain.Entities
 {
@@ -122,16 +124,17 @@ namespace EstoqueInteligente.Domain.Entities
     }
     public class ProdutoFormula
     {
-        public int CodigoFurmula { get; set; }
-        public string NomeFormula { get; set; }
-        public ICollection<Produto> Produto { get; set; }
-        public ICollection<Substancia> Substancias { get; set; }
+        public int CodigoFormula { get; set; }
+        public string NomeFormula { get; set; } = string.Empty;
+        public ICollection<Produto>? Produto { get; set; }
+        public ICollection<Substancia>? Substancias { get; set; }
+
     }
-    public class Substancia
+    public class Substancia 
     {
         public int CodigoSubstancia { get; set; }
-        public string NomeSubstancia { get; set; }
-        public ICollection<ProdutoFormula> ProdutoFormula { get; set; }
+        public string NomeSubstancia { get; set; } = string.Empty;
+        public ICollection<ProdutoFormula>? ProdutoFormula { get; set; }
     }
     public class ProdutoFormulaSubstancia
     {

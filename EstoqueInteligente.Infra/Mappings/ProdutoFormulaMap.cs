@@ -10,9 +10,9 @@ namespace EstoqueInteligente.Infra.Mappings
         public void Configure(EntityTypeBuilder<ProdutoFormula> builder)
         {
             builder.ToTable("Produto_Formula");
-            builder.HasKey(c => c.CodigoFurmula);
+            builder.HasKey(c => c.CodigoFormula);
 
-            builder.Property(c => c.CodigoFurmula)
+            builder.Property(c => c.CodigoFormula)
                 .UseIdentityColumn()
                 .ValueGeneratedOnAdd();
 
