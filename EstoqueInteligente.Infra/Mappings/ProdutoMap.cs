@@ -18,7 +18,7 @@ namespace EstoqueInteligente.Infra.Mappings
             builder.HasOne(p => p.ProdutoClasseTerapeutica)
                 .WithMany(p => p.Produto);
 
-            builder.HasOne(p => p.ProdutoFormula)
+            builder.HasOne(p => p.Formula)
                 .WithMany(p => p.Produto);
 
             builder.HasMany(p => p.Imagem)

@@ -39,8 +39,8 @@ namespace EstoqueInteligente.Infra.Context
             modelBuilder.ApplyConfiguration(new ProdutoEstoqueLoteMap());
             modelBuilder.ApplyConfiguration(new ProdutoEstoqueMap());
             modelBuilder.ApplyConfiguration(new ProdutoEstoquePrecificacaoMap());
-            modelBuilder.ApplyConfiguration(new ProdutoFormulaMap());
-            modelBuilder.ApplyConfiguration(new ProdutoFormulaSubstanciaMap());
+            modelBuilder.ApplyConfiguration(new FormulaMap());
+            modelBuilder.ApplyConfiguration(new FormulaSubstanciaMap());
             modelBuilder.ApplyConfiguration(new GrupoMap());
             modelBuilder.ApplyConfiguration(new ImagemMap());
             modelBuilder.ApplyConfiguration(new ProdutoMap());
@@ -284,9 +284,9 @@ namespace EstoqueInteligente.Infra.Context
         public DbSet<ProdutoEstoqueLote> ProdutoEstoqueLote { get; set; }
         public DbSet<ProdutoEstoque> ProdutoEstoque { get; set; }
         public DbSet<ProdutoEstoquePrecificacao> ProdutoEstoquePrecificacao { get; set; }
-        public DbSet<ProdutoFormula> ProdutoFormula { get; set; }
+        public DbSet<Formula> Formula { get; set; }
         public DbSet<Substancia> Substancia { get; set; }
-        public DbSet<ProdutoFormulaSubstancia> ProdutoFormulaSubstancia { get; set; }
+        public DbSet<FormulaSubstancia> FormulaSubstancia { get; set; }
         public DbSet<Grupo> Grupo { get; set; }
         public DbSet<Imagem> Imagem { get; set; }
         public DbSet<Produto> Produto { get; set; }

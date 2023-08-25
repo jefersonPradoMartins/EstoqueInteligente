@@ -18,9 +18,11 @@ builder.Services.AddDbContext<EstoqueInteligenteContext>();
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<INCMRepository, NCMRepository>();
-builder.Services.AddScoped<IProdutoFormulaRepository, ProdutoFormulaRepository>();
+builder.Services.AddScoped<IFormulaRepository, FormulaRepository>();
 builder.Services.AddScoped<ISubstanciaRepository, SubstanciaRepository>();
+
 builder.Services.AddScoped<INCMService, NCMService>();
+builder.Services.AddScoped<IFormulaService, FormulaService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

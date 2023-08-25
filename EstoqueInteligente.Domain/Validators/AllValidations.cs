@@ -5,7 +5,7 @@ namespace EstoqueInteligente.Domain.Validators
 {
     public class AllValidations
     {
-        public class ProdutoForumaValidator : AbstractValidator<ProdutoFormula>
+        public class ProdutoForumaValidator : AbstractValidator<Formula>
         {
 
             public ProdutoForumaValidator()

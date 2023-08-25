@@ -71,6 +71,19 @@ namespace EstoqueInteligente.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Formula",
+                columns: table => new
+                {
+                    CodigoFormula = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NomeFormula = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Formula", x => x.CodigoFormula);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Grupo",
                 columns: table => new
                 {
@@ -180,19 +193,6 @@ namespace EstoqueInteligente.Infra.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produto_Embalagem", x => x.CodigoEmbalagem);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Produto_Formula",
-                columns: table => new
-                {
-                    CodigoFormula = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeFormula = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Produto_Formula", x => x.CodigoFormula);
                 });
 
             migrationBuilder.CreateTable(
@@ -404,6 +404,11 @@ namespace EstoqueInteligente.Infra.Migrations
                 {
                     table.PrimaryKey("PK_Produto", x => x.CodigoProduto);
                     table.ForeignKey(
+                        name: "FK_Produto_Formula_ProdutoFormulaCodigoFormula",
+                        column: x => x.ProdutoFormulaCodigoFormula,
+                        principalTable: "Formula",
+                        principalColumn: "CodigoFormula");
+                    table.ForeignKey(
                         name: "FK_Produto_NCM_NCMCodigo",
                         column: x => x.NCMCodigo,
                         principalTable: "NCM",
@@ -413,15 +418,10 @@ namespace EstoqueInteligente.Infra.Migrations
                         column: x => x.ProdutoClasseTerapeuticaCodigoClasseTerapeutica,
                         principalTable: "Produto_ClasseTerapeutica",
                         principalColumn: "CodigoClasseTerapeutica");
-                    table.ForeignKey(
-                        name: "FK_Produto_Produto_Formula_ProdutoFormulaCodigoFormula",
-                        column: x => x.ProdutoFormulaCodigoFormula,
-                        principalTable: "Produto_Formula",
-                        principalColumn: "CodigoFormula");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produto_Formula_substancia",
+                name: "Formula_Substancia",
                 columns: table => new
                 {
                     CodigoSubstancia = table.Column<int>(type: "int", nullable: false),
@@ -429,15 +429,15 @@ namespace EstoqueInteligente.Infra.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produto_Formula_substancia", x => new { x.CodigoFormula, x.CodigoSubstancia });
+                    table.PrimaryKey("PK_Formula_Substancia", x => new { x.CodigoFormula, x.CodigoSubstancia });
                     table.ForeignKey(
-                        name: "FK_Produto_Formula_substancia_Produto_Formula_CodigoFormula",
+                        name: "FK_Formula_Substancia_Formula_CodigoFormula",
                         column: x => x.CodigoFormula,
-                        principalTable: "Produto_Formula",
+                        principalTable: "Formula",
                         principalColumn: "CodigoFormula",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Produto_Formula_substancia_Substancia_CodigoSubstancia",
+                        name: "FK_Formula_Substancia_Substancia_CodigoSubstancia",
                         column: x => x.CodigoSubstancia,
                         principalTable: "Substancia",
                         principalColumn: "CodigoSubstancia",
@@ -786,7 +786,7 @@ namespace EstoqueInteligente.Infra.Migrations
             migrationBuilder.InsertData(
                 table: "Produto",
                 columns: new[] { "CodigoProduto", "Ativo", "DataCadastro", "DescricaoCompletaProduto", "DescricaoResumidaProduto", "Eliminado", "NCMCodigo", "NomeProduto", "ProdutoClasseTerapeuticaCodigoClasseTerapeutica", "ProdutoFormulaCodigoFormula", "RegistroMS" },
-                values: new object[] { 1, true, new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(581), "Descricao completa do produto", "Descricao Resumida do produto", false, null, "Nome do produto", null, null, null });
+                values: new object[] { 1, true, new DateTime(2023, 8, 25, 16, 6, 35, 631, DateTimeKind.Local).AddTicks(339), "Descricao completa do produto", "Descricao Resumida do produto", false, null, "Nome do produto", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "Produto_ClasseTerapeutica",
@@ -827,12 +827,12 @@ namespace EstoqueInteligente.Infra.Migrations
             migrationBuilder.InsertData(
                 table: "Pessoa_Fisica",
                 columns: new[] { "CodigoPessoaFisica", "Ativo", "CPF", "CodigoPessoa", "DataCadastro", "DataNascimento", "Eliminado", "Nome", "NomeCompleto", "NomeSocial", "RG", "RGOrgao", "RGOrgaoUF", "Sexo", "UtilizaNomeSocial" },
-                values: new object[] { 1, true, "69850578025", 1, new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(315), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Jeferson", "Jeferson Willian do prado martins", "", "402287897", "SSP", "SP", 0, false });
+                values: new object[] { 1, true, "69850578025", 1, new DateTime(2023, 8, 25, 16, 6, 35, 631, DateTimeKind.Local).AddTicks(107), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Jeferson", "Jeferson Willian do prado martins", "", "402287897", "SSP", "SP", 0, false });
 
             migrationBuilder.InsertData(
                 table: "Pessoa_Juridica",
                 columns: new[] { "CodigoPessoaJuridica", "CNAE", "CNPJ", "CodigoPessoa", "DataCadastro", "IE", "NomeFantasia", "RazaoSocial" },
-                values: new object[] { 1, "7518", "47473617000198", 1, new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(515), "683462917135", "Nome Fantasia empresa LDTA", "Razão Social Empresa LTDA" });
+                values: new object[] { 1, "7518", "47473617000198", 1, new DateTime(2023, 8, 25, 16, 6, 35, 631, DateTimeKind.Local).AddTicks(286), "683462917135", "Nome Fantasia empresa LDTA", "Razão Social Empresa LTDA" });
 
             migrationBuilder.InsertData(
                 table: "Produto_CodigoBarra",
@@ -852,12 +852,12 @@ namespace EstoqueInteligente.Infra.Migrations
             migrationBuilder.InsertData(
                 table: "Produto_Estatistica",
                 columns: new[] { "CodigoEstatistica", "CodigoProdutoEstoque", "PrecoUltimaCompra", "PrecoUltimaVenda", "UltimaCompra", "UltimaVenda" },
-                values: new object[] { 1, 1, 16.219999999999999, 32.219999999999999, new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(654), new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(654) });
+                values: new object[] { 1, 1, 16.219999999999999, 32.219999999999999, new DateTime(2023, 8, 25, 16, 6, 35, 631, DateTimeKind.Local).AddTicks(408), new DateTime(2023, 8, 25, 16, 6, 35, 631, DateTimeKind.Local).AddTicks(408) });
 
             migrationBuilder.InsertData(
                 table: "Produto_EstoqueControle",
                 columns: new[] { "CodigoEstoqueControle", "CodigoProdutoEmbalagem", "CodigoProdutoEstoque", "CurvaABC", "DataCurvaAplicada", "EstoqueDemanda", "EstoqueDemandaMaxima", "EstoqueDemandaMinima", "EstoqueMaximo", "EstoqueMinimo" },
-                values: new object[] { 1, 1, 1, "A", new DateTime(2023, 8, 24, 17, 23, 2, 371, DateTimeKind.Local).AddTicks(666), 58, 78, 38, 0, 0 });
+                values: new object[] { 1, 1, 1, "A", new DateTime(2023, 8, 25, 16, 6, 35, 631, DateTimeKind.Local).AddTicks(420), 58, 78, 38, 0, 0 });
 
             migrationBuilder.InsertData(
                 table: "Produto_EstoquePrecificacao",
@@ -945,6 +945,11 @@ namespace EstoqueInteligente.Infra.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Formula_Substancia_CodigoSubstancia",
+                table: "Formula_Substancia",
+                column: "CodigoSubstancia");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Pessoa_Fisica_CodigoPessoa",
                 table: "Pessoa_Fisica",
                 column: "CodigoPessoa",
@@ -1020,11 +1025,6 @@ namespace EstoqueInteligente.Infra.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produto_Formula_substancia_CodigoSubstancia",
-                table: "Produto_Formula_substancia",
-                column: "CodigoSubstancia");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Produto_Grupo_ProdutosCodigoProduto",
                 table: "Produto_Grupo",
                 column: "ProdutosCodigoProduto");
@@ -1066,6 +1066,9 @@ namespace EstoqueInteligente.Infra.Migrations
                 name: "Endereco");
 
             migrationBuilder.DropTable(
+                name: "Formula_Substancia");
+
+            migrationBuilder.DropTable(
                 name: "NCM_Estatistica");
 
             migrationBuilder.DropTable(
@@ -1085,9 +1088,6 @@ namespace EstoqueInteligente.Infra.Migrations
 
             migrationBuilder.DropTable(
                 name: "Produto_EstoquePrecificacao");
-
-            migrationBuilder.DropTable(
-                name: "Produto_Formula_substancia");
 
             migrationBuilder.DropTable(
                 name: "Produto_Grupo");
@@ -1111,13 +1111,13 @@ namespace EstoqueInteligente.Infra.Migrations
                 name: "Cidade");
 
             migrationBuilder.DropTable(
+                name: "Substancia");
+
+            migrationBuilder.DropTable(
                 name: "Produto_Embalagem");
 
             migrationBuilder.DropTable(
                 name: "Produto_Estoque");
-
-            migrationBuilder.DropTable(
-                name: "Substancia");
 
             migrationBuilder.DropTable(
                 name: "Grupo");
@@ -1138,13 +1138,13 @@ namespace EstoqueInteligente.Infra.Migrations
                 name: "Pessoa_Juridica");
 
             migrationBuilder.DropTable(
+                name: "Formula");
+
+            migrationBuilder.DropTable(
                 name: "NCM");
 
             migrationBuilder.DropTable(
                 name: "Produto_ClasseTerapeutica");
-
-            migrationBuilder.DropTable(
-                name: "Produto_Formula");
 
             migrationBuilder.DropTable(
                 name: "Pessoa");

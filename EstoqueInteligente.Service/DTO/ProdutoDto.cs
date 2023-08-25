@@ -27,7 +27,7 @@ namespace EstoqueInteligente.Service.DTO
         public virtual ICollection<ProdutoCodigoBarraDto>? ProdutoCodigoBarraDto { get; set; }
         #endregion
         #region Produto_Formula
-        public ProdutoFormulaDto ProdutoFormulaDto { get; set; }
+        public FormulaDto ProdutoFormulaDto { get; set; }
         #endregion
         #region Produto_Imagem
         public ProdutoImagemDto ProdutoImagemDto { get; set; }

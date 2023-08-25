@@ -20,7 +20,7 @@ namespace EstoqueInteligente.Domain.Entities
         public ICollection<Grupo>? Grupo { get; set; }
         public ProdutoClasseTerapeutica? ProdutoClasseTerapeutica { get; set; }
         public virtual ProdutoCodigoBarra? ProdutoCodigoBarra { get; set; }
-        public ProdutoFormula? ProdutoFormula { get; set; }
+        public Formula? Formula { get; set; }
         public ICollection<Imagem> Imagem { get; set; } = new List<Imagem>();
         public ProdutoEstoque ProdutoEstoque { get; set; }
 
@@ -36,7 +36,7 @@ namespace EstoqueInteligente.Domain.Entities
             ICollection<Grupo> ProdutoGrupo,
             ProdutoClasseTerapeutica ProdutoClasseTerapeutica,
             ICollection<ProdutoCodigoBarra> ProdutoCodigoBarra,
-            ProdutoFormula ProdutoFormula,
+            Formula Formula,
             ICollection<Imagem> ProdutoImagem,
             ProdutoEstoque ProdutoEstoque,
             bool Ativo
@@ -122,21 +122,20 @@ namespace EstoqueInteligente.Domain.Entities
             this.NomeClasseTerapeutica = NomeClasseTerapeutica;
         }
     }
-    public class ProdutoFormula
+    public class Formula
     {
         public int CodigoFormula { get; set; }
         public string NomeFormula { get; set; } = string.Empty;
         public ICollection<Produto>? Produto { get; set; }
         public ICollection<Substancia>? Substancias { get; set; }
-
     }
     public class Substancia 
     {
         public int CodigoSubstancia { get; set; }
         public string NomeSubstancia { get; set; } = string.Empty;
-        public ICollection<ProdutoFormula>? ProdutoFormula { get; set; }
+        public ICollection<Formula>? ProdutoFormula { get; set; }
     }
-    public class ProdutoFormulaSubstancia
+    public class FormulaSubstancia
     {
       public int CodigoSubstancia { get;set; }
       public int CodigoFormula { get;set; }

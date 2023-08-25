@@ -15,19 +15,20 @@ namespace EstoqueInteligente.Api.Controllers
             _produtoRepository = produtoRepository;
         }
 
-    [HttpGet]
-    public IActionResult Get()
+        [HttpGet]
+        public IActionResult Get()
         {
             return Ok();
         }
-    //[HttpPost]
-    //public async Task<ActionResult> PostProduto(ProdutoDto produtoDto)
-    //    {
-    //       await _produtoRepository.CadastrarProduto(produtoDto);
 
-    //        return Ok();
-    //    }
-       
+        //[HttpPost]
+        //public async Task<ActionResult> PostProduto(ProdutoDto produtoDto)
+        //{
+        //    await _produtoRepository.CadastrarProduto(produtoDto);
+
+        //    return Ok();
+        //}
+
     }
 }
 

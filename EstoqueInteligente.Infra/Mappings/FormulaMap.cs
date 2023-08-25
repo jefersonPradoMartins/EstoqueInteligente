@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EstoqueInteligente.Infra.Mappings
 {
-    internal class ProdutoFormulaMap : IEntityTypeConfiguration<ProdutoFormula>
+    internal class FormulaMap : IEntityTypeConfiguration<Formula>
     {
-        public void Configure(EntityTypeBuilder<ProdutoFormula> builder)
+        public void Configure(EntityTypeBuilder<Formula> builder)
         {
-            builder.ToTable("Produto_Formula");
+            builder.ToTable("Formula");
             builder.HasKey(c => c.CodigoFormula);
 
             builder.Property(c => c.CodigoFormula)
@@ -18,10 +18,10 @@ namespace EstoqueInteligente.Infra.Mappings
 
             builder.HasMany(s => s.Substancias)
                 .WithMany(f => f.ProdutoFormula)
-               .UsingEntity<ProdutoFormulaSubstancia>(
+               .UsingEntity<FormulaSubstancia>(
             l => l.HasOne<Substancia>().WithMany().HasForeignKey(e => e.CodigoSubstancia),
-            r => r.HasOne<ProdutoFormula>().WithMany().HasForeignKey(e => e.CodigoFormula),
-            o=>o.ToTable("Produto_Formula_Substancia"));
+            r => r.HasOne<Formula>().WithMany().HasForeignKey(e => e.CodigoFormula),
+            o=>o.ToTable("Formula_Substancia"));
         }
     }
 }
