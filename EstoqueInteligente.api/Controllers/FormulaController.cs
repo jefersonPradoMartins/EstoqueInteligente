@@ -2,6 +2,7 @@
 using EstoqueInteligente.Service.DTO;
 using EstoqueInteligente.Service.Intefaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Net;
 
 namespace EstoqueInteligente.Api.Controllers
@@ -25,6 +26,7 @@ namespace EstoqueInteligente.Api.Controllers
             return await _formulaService.GetAll();
            
         }
+       
 
         [HttpPost]
         public async Task<IActionResult> PostFormula(FormulaDto formulaDto)

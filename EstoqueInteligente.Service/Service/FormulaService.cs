@@ -2,6 +2,7 @@
 using EstoqueInteligente.Infra.Interfaces.Repository;
 using EstoqueInteligente.Service.DTO;
 using EstoqueInteligente.Service.Intefaces;
+using Microsoft.IdentityModel.Tokens;
 
 namespace EstoqueInteligente.Service.Service
 {
@@ -19,7 +20,8 @@ namespace EstoqueInteligente.Service.Service
 
         public async Task CreateFormula(FormulaDto produtoFormulaDto)
         {
-            if(produtoFormulaDto.CodigoSubstancia.Count > 0)
+            if(produtoFormulaDto.CodigoSubstancia.Count > 0 && 
+                !produtoFormulaDto.NomeFormula.IsNullOrEmpty())
             {
 
            
