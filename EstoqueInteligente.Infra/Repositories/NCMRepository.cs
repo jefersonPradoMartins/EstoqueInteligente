@@ -48,7 +48,7 @@ namespace EstoqueInteligente.Infra.Repositories
                 }
             }
         }
-        public async Task<NCM> FindByIdAsync(string codigo)
+        public async Task<NCM> GetByIdAsync(string codigo)
         {
             return await _context.NCM.AsNoTracking<NCM>().FirstOrDefaultAsync(x => x.Codigo.Equals(codigo));
         }

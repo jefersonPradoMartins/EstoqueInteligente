@@ -1,7 +1,10 @@
-﻿using EstoqueInteligente.Infra.Interfaces.Repository;
+﻿using EstoqueInteligente.Domain.Entities;
+using EstoqueInteligente.Infra.Interfaces.Repository;
 using EstoqueInteligente.Service.DTO;
 using EstoqueInteligente.Service.Intefaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using static EstoqueInteligente.Api.Controllers.NCMController;
 
 namespace EstoqueInteligente.Api.Controllers
 {
@@ -40,6 +43,7 @@ namespace EstoqueInteligente.Api.Controllers
 
             return Ok();
         }
+
         [HttpDelete]
         [Route("")]
         public async Task<IActionResult> DeleteNCM(string ncm)
@@ -48,5 +52,26 @@ namespace EstoqueInteligente.Api.Controllers
 
             return Ok();
         }
+        [HttpGet]
+        [Route("/Lists")]
+        public async Task<IActionResult> GetList()
+        {
+            return Ok( await _ncmService.GetAllAsync());
+        }
+        [HttpGet]
+        [Route("/GetById")]
+        public async Task<ActionResult> GetById(string codigo)
+        {
+            var result = await _ncmService.GetByIdAsync(codigo);
+            if(result == null)
+            {
+                return NotFound("NCM não encontrado");
+            }
+            return Ok(result) ;
+        }
+
+       
+
+
     }
 }

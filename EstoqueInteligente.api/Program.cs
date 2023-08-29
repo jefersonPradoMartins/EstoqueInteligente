@@ -20,6 +20,8 @@ builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<INCMRepository, NCMRepository>();
 builder.Services.AddScoped<IFormulaRepository, FormulaRepository>();
 builder.Services.AddScoped<ISubstanciaRepository, SubstanciaRepository>();
+builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
+builder.Services.AddScoped<IGrupoService, GrupoService>();
 
 builder.Services.AddScoped<INCMService, NCMService>();
 builder.Services.AddScoped<IFormulaService, FormulaService>();

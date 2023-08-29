@@ -10,7 +10,7 @@ namespace EstoqueInteligente.Infra.Interfaces.Repository
         Task UpdateNCMAsync(NCM ncm);
         Task RemoveNCM(string codigo);
         Task RemoveNCMEstatisticaAsync();
-        Task<NCM> FindByIdAsync(string codigo);
+        Task<NCM> GetByIdAsync(string codigo);
         Task<List<NCM>> GetAllAsync();
     }
 }

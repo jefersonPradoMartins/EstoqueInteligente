@@ -3,6 +3,7 @@ using EstoqueInteligente.Domain.Entities;
 using EstoqueInteligente.Infra.Interfaces.Repository;
 using EstoqueInteligente.Service.DTO;
 using EstoqueInteligente.Service.Intefaces;
+using static EstoqueInteligente.Service.Service.NCMService;
 
 namespace EstoqueInteligente.Service.Service
 {
@@ -43,12 +44,13 @@ namespace EstoqueInteligente.Service.Service
             return new Optional<Nomenclaturas>(nomenclaturas);
         }
 
-        public async Task<IList<Nomenclaturas>> GetAllAsync()
+        public async Task<IList<NCM>> GetAllAsync()
         {
             var result = await _ncmRepository.GetAllAsync();
+            return result;
             List<Nomenclaturas> nomeclaturasList = new List<Nomenclaturas>();
 
-            for (int i = 0; i <= result.Count; i++)
+            for (int i = 0; i < result.Count; i++)
             {
                 nomeclaturasList.Add(new Nomenclaturas
                 {
@@ -61,12 +63,34 @@ namespace EstoqueInteligente.Service.Service
                     Tipo_Ato = result[i].Tipo_Ato
                 });
             }
-            return nomeclaturasList;
+          //  return nomeclaturasList;
         }
 
-        public Task<Optional<Nomenclaturas>> GetAsync(string Codigo)
+        public class ResponseGenericException<T>
         {
-            throw new NotImplementedException();
+            public static Dictionary<string, T> Response(T obj)
+            {
+                if (obj == null)
+                {
+                    return new Dictionary<string, T>();
+                }
+                return new Dictionary<string, T>
+                {
+
+                    ["result"] = obj
+                };
+            }
+        }
+
+        public class MinhaExcecaoPersonalizada : Exception
+        {
+            public MinhaExcecaoPersonalizada(string mensagem) : base(mensagem)
+            {
+            }
+        }
+        public async Task<NCM>? GetByIdAsync(string Codigo)
+        {
+            return await _ncmRepository.GetByIdAsync(Codigo);
         }
 
         public async Task RemoveAsync(string Codigo)
@@ -87,7 +111,7 @@ namespace EstoqueInteligente.Service.Service
             foreach (var ncm in ncmArquivoDto.Nomenclaturas)
             {
 
-                var result = await _ncmRepository.FindByIdAsync(ncm.Codigo);
+                var result = await _ncmRepository.GetByIdAsync(ncm.Codigo);
                 if (result != null)
                 {
                     await _ncmRepository.UpdateNCMAsync(

@@ -10,7 +10,10 @@ namespace EstoqueInteligente.Infra.Mappings
         {
             builder.ToTable("Produto")
                 .HasMany(g => g.Grupo)
-                .WithMany(p => p.Produtos).UsingEntity(p=>p.ToTable("Produto_Grupo"));
+                .WithMany(p => p.Produtos).UsingEntity<ProdutoGrupo>(
+                l=>l.HasOne<Grupo>().WithMany().HasForeignKey(g=>g.CodigoGrupo),
+                r=>r.HasOne<Produto>().WithMany().HasForeignKey(p=>p.CodigoProduto),
+                p=>p.ToTable("Produto_Grupo"));
 
             builder.HasOne(p => p.NCM)
                 .WithMany(n => n.Produtos);

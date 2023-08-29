@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.SymbolStore;
+using System.Text.Json.Serialization;
 using static EstoqueInteligente.Domain.Validators.AllValidations;
 
 namespace EstoqueInteligente.Domain.Entities
@@ -33,7 +34,7 @@ namespace EstoqueInteligente.Domain.Entities
             DateTime DataCadastro,
             string RegistroMS,
             NCM NCM,
-            ICollection<Grupo> ProdutoGrupo,
+            ICollection<Grupo> Grupo,
             ProdutoClasseTerapeutica ProdutoClasseTerapeutica,
             ICollection<ProdutoCodigoBarra> ProdutoCodigoBarra,
             Formula Formula,
@@ -158,6 +159,7 @@ namespace EstoqueInteligente.Domain.Entities
     {
         public int CodigoGrupo { get; set; }
         public string NomeGrupo { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Produto> Produtos { get; set; } = new List<Produto>();
         public bool Unico { get; set; }
 
@@ -172,6 +174,12 @@ namespace EstoqueInteligente.Domain.Entities
             this.Unico = Unico;
         }
 
+    }
+
+    public class ProdutoGrupo
+    {
+        public int CodigoGrupo { get; set; }
+        public int CodigoProduto { get; set; }
     }
     public class ProdutoEmbalagem
     {
@@ -190,7 +198,7 @@ namespace EstoqueInteligente.Domain.Entities
         public string Descricao { get; set; } = string.Empty;
         public string Numero_Ato { get; set; } = string.Empty;
         public string Tipo_Ato { get; set; } = string.Empty;
-
+       // [JsonIgnore]
         public virtual ICollection<Produto> Produtos { get; set; }
 
         public NCM() { }

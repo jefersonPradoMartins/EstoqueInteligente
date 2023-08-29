@@ -1,34 +1,26 @@
-﻿using EstoqueInteligente.Infra.Interfaces.Repository;
-using EstoqueInteligente.Service.DTO;
+﻿using EstoqueInteligente.Service.DTO;
 using EstoqueInteligente.Service.Intefaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Net;
 
 namespace EstoqueInteligente.Api.Controllers
 {
-    [Route("/Formula")]
+    [Route("api/[controller]")]
     [ApiController]
 
     public class FormulaController : Controller
     {
         private IFormulaService _formulaService;
-
         public FormulaController(IFormulaService formulaService)
         {
             _formulaService = formulaService;
         }
-
-        [HttpGet]
-        [Route("/List")]
+        [HttpGet("List")]
+        
         public async Task<List<FormulaOnlyDto>> GetAll()
         {
             return await _formulaService.GetAll();
-           
         }
-       
-
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<IActionResult> PostFormula(FormulaDto formulaDto)
         {
             await _formulaService.CreateFormula(formulaDto);
